@@ -1,0 +1,32 @@
+RInput Library v1.31
+----------------------------------
+RInput allows you to override low definition windows mouse input (accurate untill 400cpi) with high definition mouse input (raw input, which is more accurate for high cpi mice). This is certainly useful for older games as those engines only support low definition windows mouse input.
+
+Note:
+----------------------------------
+Sorry for posting the source this late, I never found the time to find the correct backup, write some comments and add a licensing. The injector still might become open source if I find the time some day.
+You can use my previous injector in case you just want to edit the source of the library. Otherwise you can use the instructions below with your own injection stub.
+
+The code as presented (the last version I released in 2009) supports X86 architecture only. After Valve embedded Raw Input into their games, I did not see the urge of rewriting the projects for the X64 architecture.
+
+Building:
+----------------------------------
+Compile with Visual Studio (or Visual C++ Express);
+- Link the library to MS Detours (MS Detours 1.5 was used back then; http://home.comcast.net/~wiccaan/downloads/Detours.rar)
+- Make sure you compile the library with a Multi-Byte Character Set
+
+How it works:
+----------------------------------
+As most of the developers are not into Win32 API these days, I'll just sum up how the process works:
+
+1. The library gets injected into a process by an injector
+2. The injector creates a windows event to communicate with the injected library
+3. The injector calls the "entryPoint" function remotely
+4. The library initializes the hook and raw mouse input
+5. The library raises the event that has been created by the injector
+6. The injector gives the user feedback, based on whether the event was raised or not
+
+Credits:
+----------------------------------
+Dr3am - for the icons
+Microsoft - for preventing me from writing my own detour/hooking stub
