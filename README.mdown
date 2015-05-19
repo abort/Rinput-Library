@@ -30,5 +30,5 @@ I never added x64 architecture support, due to old games being 32-bit. Windows X
 * This library obviously has to get recompiled to 64-bit (might require some changes to Win32 API calls for the Rinput HWND)
 
 ## Credits:
-Dr3am - for the icons
-Microsoft - for preventing me from writing my own detour/hooking stub
+Dr3am: for the icons
+Microsoft: for preventing me from writing my own detour/hooking stub
